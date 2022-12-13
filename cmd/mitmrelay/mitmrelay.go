@@ -9,8 +9,8 @@ import (
 	"sync"
 	"time"
 
+	"github.com/Kelfitas/proxify"
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/proxify"
 	"github.com/projectdiscovery/tinydns"
 )
 

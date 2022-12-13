@@ -5,7 +5,7 @@ import (
 	"os"
 	"path"
 
-	"github.com/projectdiscovery/proxify/pkg/types"
+	"github.com/Kelfitas/proxify/pkg/types"
 )
 
 // Options required for file export

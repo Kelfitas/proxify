@@ -1,8 +1,8 @@
 package kafka
 
 import (
+	"github.com/Kelfitas/proxify/pkg/types"
 	"github.com/Shopify/sarama"
-	"github.com/projectdiscovery/proxify/pkg/types"
 )
 
 // Options required for kafka

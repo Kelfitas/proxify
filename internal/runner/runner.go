@@ -3,10 +3,10 @@ package runner
 import (
 	"strings"
 
+	"github.com/Kelfitas/proxify"
 	"github.com/Knetic/govaluate"
 	"github.com/projectdiscovery/dsl"
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/proxify"
 )
 
 // Runner contains the internal logic of the program

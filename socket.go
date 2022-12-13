@@ -11,8 +11,8 @@ import (
 	"net/url"
 	"time"
 
+	"github.com/Kelfitas/proxify/pkg/types"
 	"github.com/projectdiscovery/dsl"
-	"github.com/projectdiscovery/proxify/pkg/types"
 )
 
 // SocketProxy - connect two sockets with TLS inspection

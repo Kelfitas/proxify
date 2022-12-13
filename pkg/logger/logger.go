@@ -8,14 +8,14 @@ import (
 	"net/http/httputil"
 	"strings"
 
+	"github.com/Kelfitas/proxify/pkg/logger/elastic"
+	"github.com/Kelfitas/proxify/pkg/logger/file"
+	"github.com/Kelfitas/proxify/pkg/logger/kafka"
 	"github.com/asaskevich/govalidator"
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/proxify/pkg/logger/elastic"
-	"github.com/projectdiscovery/proxify/pkg/logger/file"
-	"github.com/projectdiscovery/proxify/pkg/logger/kafka"
 	"github.com/projectdiscovery/stringsutil"
 
-	"github.com/projectdiscovery/proxify/pkg/types"
+	"github.com/Kelfitas/proxify/pkg/types"
 )
 
 const (

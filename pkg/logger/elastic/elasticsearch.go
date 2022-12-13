@@ -8,10 +8,10 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/Kelfitas/proxify/pkg/types"
 	elasticsearch "github.com/elastic/go-elasticsearch/v7"
 	"github.com/elastic/go-elasticsearch/v7/esapi"
 	"github.com/pkg/errors"
-	"github.com/projectdiscovery/proxify/pkg/types"
 )
 
 // Options contains necessary options required for elasticsearch communicaiton

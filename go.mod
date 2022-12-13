@@ -1,4 +1,4 @@
-module github.com/projectdiscovery/proxify
+module github.com/Kelfitas/proxify
 
 go 1.17
 

@@ -6,8 +6,8 @@ import (
 	"os/signal"
 	"syscall"
 
+	"github.com/Kelfitas/proxify/internal/runner"
 	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/proxify/internal/runner"
 )
 
 func main() {
@@ -21,7 +21,7 @@ func main() {
 
 	// Setup close handler
 	go func() {
-		c := make(chan os.Signal,1) //added size 1 to channel buffer
+		c := make(chan os.Signal, 1) //added size 1 to channel buffer
 		signal.Notify(c, os.Interrupt, syscall.SIGTERM)
 		go func() {
 			<-c

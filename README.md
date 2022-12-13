@@ -6,10 +6,10 @@
 
 <p align="center">
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-_red.svg"></a>
-<a href="https://github.com/projectdiscovery/proxify/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"></a>
-<a href="https://goreportcard.com/badge/github.com/projectdiscovery/proxify"><img src="https://goreportcard.com/badge/github.com/projectdiscovery/proxify"></a>
-<a href="https://github.com/projectdiscovery/proxify/releases"><img src="https://img.shields.io/github/release/projectdiscovery/proxify"></a>
-<a href="https://hub.docker.com/r/projectdiscovery/proxify"><img src="https://img.shields.io/docker/pulls/projectdiscovery/proxify.svg"></a>
+<a href="https://github.com/Kelfitas/proxify/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"></a>
+<a href="https://goreportcard.com/badge/github.com/Kelfitas/proxify"><img src="https://goreportcard.com/badge/github.com/Kelfitas/proxify"></a>
+<a href="https://github.com/Kelfitas/proxify/releases"><img src="https://img.shields.io/github/release/Kelfitas/proxify"></a>
+<a href="https://hub.docker.com/r/Kelfitas/proxify"><img src="https://img.shields.io/docker/pulls/Kelfitas/proxify.svg"></a>
 <a href="https://twitter.com/pdiscoveryio"><img src="https://img.shields.io/twitter/follow/pdiscoveryio.svg?logo=twitter"></a>
 <a href="https://discord.gg/projectdiscovery"><img src="https://img.shields.io/discord/695645237418131507.svg?logo=discord"></a>
 </p>
@@ -47,10 +47,10 @@ Additionally, a replay utility allows to import the dumped traffic (request/resp
 
 # Installation
 
-Download the ready to run [binary](https://github.com/projectdiscovery/proxify/releases/) or install/build using GO
+Download the ready to run [binary](https://github.com/Kelfitas/proxify/releases/) or install/build using GO
 
 ```shell
-go install -v github.com/projectdiscovery/proxify/cmd/proxify@latest
+go install -v github.com/Kelfitas/proxify/cmd/proxify@latest
 ```
 
 # Usage
@@ -262,4 +262,4 @@ ffuf -x http://127.0.0.1:8888 FFUF_CMD_HERE
 
 ------
 
-`Proxify` is made with 🖤 by the [projectdiscovery](https://projectdiscovery.io) team. Community contributions have made the project what it is. See the **[Thanks.md](https://github.com/projectdiscovery/proxify/blob/master/THANKS.md)** file for more details.
+`Proxify` is made with 🖤 by the [projectdiscovery](https://projectdiscovery.io) team. Community contributions have made the project what it is. See the **[Thanks.md](https://github.com/Kelfitas/proxify/blob/master/THANKS.md)** file for more details.
