@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 
 	"github.com/Kelfitas/proxify/pkg/types"
-	fileutil "github.com/Kelfitas/utils/file"
+	fileutil "github.com/projectdiscovery/utils/file"
 )
 
 // Options required for file export
