@@ -1,4 +1,4 @@
-<h1 align="center">read
+<h1 align="center">
   <img src="static/proxify-logo.png" alt="proxify" width="200px">
   <br>
 </h1>
@@ -67,9 +67,15 @@ Usage:
 
 Flags:
 OUTPUT:
-   -o, -output string  Output Directory to store HTTP proxy logs (default "logs")
-   -dump-req           Dump only HTTP requests to output file
-   -dump-resp          Dump only HTTP responses to output file
+   -o, -output string    Output Directory to store HTTP proxy logs (default "logs")
+   -dump-req             Dump only HTTP requests to output file
+   -dump-resp            Dump only HTTP responses to output file
+   -j, -jsonl            write output in JSONL(ines) format
+   -oca, -out-ca string  Generate and Save CA File to filename
+
+UPDATE:
+   -up, -update                 update proxify to latest version
+   -duc, -disable-update-check  disable automatic proxify update check
 
 FILTER:
    -req-fd, -request-dsl string[]                   Request Filter DSL
@@ -101,7 +107,8 @@ EXPORT:
    -kafka-topic string        kafka topic to publish messages on (default "proxify")
 
 CONFIGURATION:
-   -config string              Directory for storing program information (default "$HOME/.config/proxify")
+   -config string              path to the proxify configuration file
+   -config-directory string    override the default config path ($home/.config/proxify) (default "$home/.config/proxify")
    -cert-cache-size int        Number of certificates to cache (default 256)
    -a, -allow string[]         Allowed list of IP/CIDR's to be proxied
    -d, -deny string[]          Denied list of IP/CIDR's to be proxied

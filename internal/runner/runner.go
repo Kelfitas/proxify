@@ -1,9 +1,13 @@
 package runner
 
 import (
+	"os"
+	"path/filepath"
 	"strings"
 
 	"github.com/Kelfitas/proxify"
+	"github.com/Kelfitas/proxify/pkg/certs"
+	"github.com/Kelfitas/proxify/pkg/logger/file"
 	"github.com/Knetic/govaluate"
 	"github.com/projectdiscovery/dsl"
 	"github.com/projectdiscovery/gologger"
@@ -17,8 +21,21 @@ type Runner struct {
 
 // NewRunner instance
 func NewRunner(options *Options) (*Runner, error) {
+	if err := certs.LoadCerts(options.ConfigDir); err != nil {
+		gologger.Fatal().Msgf("%s\n", err)
+	}
+
+	if options.OutCAFile != "" {
+		err := certs.SaveCAToFile(options.OutCAFile)
+		if err != nil {
+			return nil, err
+		}
+		gologger.Print().Msgf("Saved CA File at %v", options.OutCAFile)
+		os.Exit(0)
+	}
+
 	proxy, err := proxify.NewProxy(&proxify.Options{
-		Directory:                   options.Directory,
+		Directory:                   options.ConfigDir,
 		CertCacheSize:               options.CertCacheSize,
 		Verbosity:                   options.Verbosity,
 		ListenAddrHTTP:              options.ListenAddrHTTP,
@@ -35,6 +52,7 @@ func NewRunner(options *Options) (*Runner, error) {
 		ResponseMatchReplaceDSL:     options.ResponseMatchReplaceDSL,
 		DumpRequest:                 options.DumpRequest,
 		DumpResponse:                options.DumpResponse,
+		OutputJsonl:                 options.OutputJsonl,
 		MaxSize:                     options.MaxSize,
 		UpstreamProxyRequestsNumber: options.UpstreamProxyRequestsNumber,
 		Elastic:                     &options.Elastic,
@@ -63,6 +81,7 @@ func (r *Runner) validateExpressions(expressionsGroups ...[]string) error {
 
 // Run polling and notification
 func (r *Runner) Run() error {
+
 	if err := r.validateExpressions(r.options.RequestDSL, r.options.ResponseDSL, r.options.RequestMatchReplaceDSL, r.options.ResponseMatchReplaceDSL); err != nil {
 		return err
 	}
@@ -76,7 +95,11 @@ func (r *Runner) Run() error {
 	}
 
 	if r.options.OutputDirectory != "" {
-		gologger.Info().Msgf("Saving proxify traffic to %s\n", r.options.OutputDirectory)
+		logPath := r.options.OutputDirectory
+		if r.options.OutputJsonl {
+			logPath = filepath.Join(logPath, file.ProxifyJsonlLogFile)
+		}
+		gologger.Info().Msgf("Saving proxify traffic to %s\n", logPath)
 	}
 	if r.options.Kafka.Addr != "" {
 		gologger.Info().Msgf("Sending traffic to Kafka at %s\n", r.options.Kafka.Addr)
